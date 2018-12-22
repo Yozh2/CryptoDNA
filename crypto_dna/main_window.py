@@ -1,223 +1,78 @@
-# -*- coding: utf-8 -*-
+# System imports
+import glob
+import os
+import os.path as osp
+import sys
 
-# Form implementation generated from reading ui file 'mainwindow.ui'
-#
-# Created by: PyQt5 UI code generator 5.11.2
-#
-# WARNING! All changes made in this file will be lost!
+# Third party imports
+import numpy as np
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+# import PyQt5
+from PyQt5 import uic
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(672, 826)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
-        MainWindow.setSizePolicy(sizePolicy)
-        MainWindow.setMinimumSize(QtCore.QSize(0, 0))
-        MainWindow.setMaximumSize(QtCore.QSize(16777214, 16777215))
-        MainWindow.setDockOptions(QtWidgets.QMainWindow.AllowNestedDocks|QtWidgets.QMainWindow.AllowTabbedDocks|QtWidgets.QMainWindow.AnimatedDocks|QtWidgets.QMainWindow.ForceTabbedDocks)
-        MainWindow.setUnifiedTitleAndToolBarOnMac(True)
-        self.central_widget = QtWidgets.QWidget(MainWindow)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.central_widget.sizePolicy().hasHeightForWidth())
-        self.central_widget.setSizePolicy(sizePolicy)
-        self.central_widget.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.central_widget.setObjectName("central_widget")
-        self.gridLayout = QtWidgets.QGridLayout(self.central_widget)
-        self.gridLayout.setContentsMargins(11, 11, 11, 11)
-        self.gridLayout.setSpacing(6)
-        self.gridLayout.setObjectName("gridLayout")
-        self.encryption_panel = QtWidgets.QGroupBox(self.central_widget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.encryption_panel.sizePolicy().hasHeightForWidth())
-        self.encryption_panel.setSizePolicy(sizePolicy)
-        self.encryption_panel.setObjectName("encryption_panel")
-        self.gridLayout_2 = QtWidgets.QGridLayout(self.encryption_panel)
-        self.gridLayout_2.setContentsMargins(11, 11, 11, 11)
-        self.gridLayout_2.setSpacing(6)
-        self.gridLayout_2.setObjectName("gridLayout_2")
-        self.enc_M_panel = QtWidgets.QGroupBox(self.encryption_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.enc_M_panel.sizePolicy().hasHeightForWidth())
-        self.enc_M_panel.setSizePolicy(sizePolicy)
-        self.enc_M_panel.setObjectName("enc_M_panel")
-        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.enc_M_panel)
-        self.verticalLayout_4.setContentsMargins(11, 11, 11, 11)
-        self.verticalLayout_4.setSpacing(6)
-        self.verticalLayout_4.setObjectName("verticalLayout_4")
-        self.enc_M_text = QtWidgets.QTextEdit(self.enc_M_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.enc_M_text.sizePolicy().hasHeightForWidth())
-        self.enc_M_text.setSizePolicy(sizePolicy)
-        self.enc_M_text.setObjectName("enc_M_text")
-        self.verticalLayout_4.addWidget(self.enc_M_text)
-        self.encryption_button = QtWidgets.QPushButton(self.enc_M_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.encryption_button.sizePolicy().hasHeightForWidth())
-        self.encryption_button.setSizePolicy(sizePolicy)
-        self.encryption_button.setObjectName("encryption_button")
-        self.verticalLayout_4.addWidget(self.encryption_button)
-        self.gridLayout_2.addWidget(self.enc_M_panel, 0, 0, 1, 1)
-        self.enc_K_panel = QtWidgets.QGroupBox(self.encryption_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.enc_K_panel.sizePolicy().hasHeightForWidth())
-        self.enc_K_panel.setSizePolicy(sizePolicy)
-        self.enc_K_panel.setObjectName("enc_K_panel")
-        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.enc_K_panel)
-        self.horizontalLayout_4.setContentsMargins(11, 11, 11, 11)
-        self.horizontalLayout_4.setSpacing(6)
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
-        self.enc_K_text = QtWidgets.QTextBrowser(self.enc_K_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.enc_K_text.sizePolicy().hasHeightForWidth())
-        self.enc_K_text.setSizePolicy(sizePolicy)
-        self.enc_K_text.setObjectName("enc_K_text")
-        self.horizontalLayout_4.addWidget(self.enc_K_text)
-        self.gridLayout_2.addWidget(self.enc_K_panel, 1, 0, 1, 1)
-        self.enc_C_panel = QtWidgets.QGroupBox(self.encryption_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.enc_C_panel.sizePolicy().hasHeightForWidth())
-        self.enc_C_panel.setSizePolicy(sizePolicy)
-        self.enc_C_panel.setObjectName("enc_C_panel")
-        self.horizontalLayout_5 = QtWidgets.QHBoxLayout(self.enc_C_panel)
-        self.horizontalLayout_5.setContentsMargins(11, 11, 11, 11)
-        self.horizontalLayout_5.setSpacing(6)
-        self.horizontalLayout_5.setObjectName("horizontalLayout_5")
-        self.enc_C_text = QtWidgets.QTextBrowser(self.enc_C_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.enc_C_text.sizePolicy().hasHeightForWidth())
-        self.enc_C_text.setSizePolicy(sizePolicy)
-        self.enc_C_text.setObjectName("enc_C_text")
-        self.horizontalLayout_5.addWidget(self.enc_C_text)
-        self.gridLayout_2.addWidget(self.enc_C_panel, 2, 0, 1, 1)
-        self.gridLayout.addWidget(self.encryption_panel, 0, 0, 1, 1)
-        self.decryption_panel = QtWidgets.QGroupBox(self.central_widget)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.decryption_panel.sizePolicy().hasHeightForWidth())
-        self.decryption_panel.setSizePolicy(sizePolicy)
-        self.decryption_panel.setObjectName("decryption_panel")
-        self.gridLayout_3 = QtWidgets.QGridLayout(self.decryption_panel)
-        self.gridLayout_3.setContentsMargins(11, 11, 11, 11)
-        self.gridLayout_3.setSpacing(6)
-        self.gridLayout_3.setObjectName("gridLayout_3")
-        self.dec_C_panel = QtWidgets.QGroupBox(self.decryption_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dec_C_panel.sizePolicy().hasHeightForWidth())
-        self.dec_C_panel.setSizePolicy(sizePolicy)
-        self.dec_C_panel.setObjectName("dec_C_panel")
-        self.verticalLayout_5 = QtWidgets.QVBoxLayout(self.dec_C_panel)
-        self.verticalLayout_5.setContentsMargins(11, 11, 11, 11)
-        self.verticalLayout_5.setSpacing(6)
-        self.verticalLayout_5.setObjectName("verticalLayout_5")
-        self.dec_C_text = QtWidgets.QTextEdit(self.dec_C_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dec_C_text.sizePolicy().hasHeightForWidth())
-        self.dec_C_text.setSizePolicy(sizePolicy)
-        self.dec_C_text.setObjectName("dec_C_text")
-        self.verticalLayout_5.addWidget(self.dec_C_text)
-        self.decrypt_button = QtWidgets.QPushButton(self.dec_C_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.decrypt_button.sizePolicy().hasHeightForWidth())
-        self.decrypt_button.setSizePolicy(sizePolicy)
-        self.decrypt_button.setObjectName("decrypt_button")
-        self.verticalLayout_5.addWidget(self.decrypt_button)
-        self.gridLayout_3.addWidget(self.dec_C_panel, 0, 0, 1, 1)
-        self.dec_K_panel = QtWidgets.QGroupBox(self.decryption_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dec_K_panel.sizePolicy().hasHeightForWidth())
-        self.dec_K_panel.setSizePolicy(sizePolicy)
-        self.dec_K_panel.setObjectName("dec_K_panel")
-        self.horizontalLayout_6 = QtWidgets.QHBoxLayout(self.dec_K_panel)
-        self.horizontalLayout_6.setContentsMargins(11, 11, 11, 11)
-        self.horizontalLayout_6.setSpacing(6)
-        self.horizontalLayout_6.setObjectName("horizontalLayout_6")
-        self.dec_K_text = QtWidgets.QTextEdit(self.dec_K_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dec_K_text.sizePolicy().hasHeightForWidth())
-        self.dec_K_text.setSizePolicy(sizePolicy)
-        self.dec_K_text.setObjectName("dec_K_text")
-        self.horizontalLayout_6.addWidget(self.dec_K_text)
-        self.gridLayout_3.addWidget(self.dec_K_panel, 1, 0, 1, 1)
-        self.dec_M_panel = QtWidgets.QGroupBox(self.decryption_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dec_M_panel.sizePolicy().hasHeightForWidth())
-        self.dec_M_panel.setSizePolicy(sizePolicy)
-        self.dec_M_panel.setObjectName("dec_M_panel")
-        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.dec_M_panel)
-        self.horizontalLayout_7.setContentsMargins(11, 11, 11, 11)
-        self.horizontalLayout_7.setSpacing(6)
-        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
-        self.dec_M_text = QtWidgets.QTextBrowser(self.dec_M_panel)
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.dec_M_text.sizePolicy().hasHeightForWidth())
-        self.dec_M_text.setSizePolicy(sizePolicy)
-        self.dec_M_text.setObjectName("dec_M_text")
-        self.horizontalLayout_7.addWidget(self.dec_M_text)
-        self.gridLayout_3.addWidget(self.dec_M_panel, 2, 0, 1, 1)
-        self.gridLayout.addWidget(self.decryption_panel, 0, 1, 1, 1)
-        MainWindow.setCentralWidget(self.central_widget)
-        self.menuBar = QtWidgets.QMenuBar(MainWindow)
-        self.menuBar.setGeometry(QtCore.QRect(0, 0, 672, 21))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.MinimumExpanding, QtWidgets.QSizePolicy.MinimumExpanding)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.menuBar.sizePolicy().hasHeightForWidth())
-        self.menuBar.setSizePolicy(sizePolicy)
-        self.menuBar.setObjectName("menuBar")
-        MainWindow.setMenuBar(self.menuBar)
+# local imports
+from .dna_cryptography import *
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+# Load and preconfigure GUI from UI file
+self_wd = osp.abspath(osp.dirname(__file__))
+(Ui_MainWindow, QMainWindow) = uic.loadUiType(osp.join(self_wd, 'gui', 'mainwindow.ui'))
 
-    def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "DNA Cipher"))
-        self.encryption_panel.setTitle(_translate("MainWindow", "Encryption"))
-        self.enc_M_panel.setTitle(_translate("MainWindow", "Secret Message M"))
-        self.encryption_button.setText(_translate("MainWindow", "Encrypt"))
-        self.enc_K_panel.setTitle(_translate("MainWindow", "Secret Key K"))
-        self.enc_C_panel.setTitle(_translate("MainWindow", "Encrypted Message C"))
-        self.decryption_panel.setTitle(_translate("MainWindow", "Decryption"))
-        self.dec_C_panel.setTitle(_translate("MainWindow", "Encrypted Message C"))
-        self.decrypt_button.setText(_translate("MainWindow", "Decrypt"))
-        self.dec_K_panel.setTitle(_translate("MainWindow", "Secret Key K"))
-        self.dec_M_panel.setTitle(_translate("MainWindow", "Decrypted Message M"))
+class MainWindow(QMainWindow):
+    """MainWindow inherits QMainWindow"""
 
+    def __init__(self, parent=None):
+        QMainWindow.__init__(self, parent)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
+        # Setup paths
+        self.wd = osp.abspath(osp.dirname(__file__))
+
+        # Connect signals to SLOTs
+        self.ui.encryption_button.clicked.connect(self._encrypt_button_clicked)
+        self.ui.decrypt_button.clicked.connect(self._decrypt_button_clicked)
+
+    def _encrypt_button_clicked(self):
+        # Convert message to binary
+        self.m_enc = self.ui.enc_M_text.toPlainText()
+        self.M_enc = text_to_bits(self.m_enc)
+
+        # Generate key
+        self.K_enc = generate_K(len(self.M_enc)*7*10) # 7 бит в каждой букве
+        self.ui.enc_K_text.setText(str(self.K_enc))
+
+        # Encrypt M to C using K
+        self.C_enc = encrypt(self.K_enc, self.M_enc)
+        self.ui.enc_C_text.setText('\n'.join(self.C_enc))
+
+    def _decrypt_button_clicked(self):
+        # Get encrypted message and key
+        self.C_dec = [i for i in self.ui.dec_C_text.toPlainText().split('\n')]
+        self.K_dec = self.ui.dec_K_text.toPlainText()
+
+        # Decrypt message C to M using K
+        self.M_dec = decrypt(self.K_dec, self.C_dec)
+
+        # Convert binary to text again
+        self.m_dec = text_from_bits(self.M_dec)
+        self.ui.dec_M_text.setText(str(self.m_dec))
+
+    def __del__(self):
+        self.ui = None
+
+#-----------------------------------------------------#
+if __name__ == '__main__':
+    # create application
+    app = QApplication(sys.argv)
+    app.setStyle("fusion")  # Linux visual style
+    app.setApplicationName('DNACipher')
+
+    # create widget
+    w = MainWindow()
+    w.setWindowTitle('DNA Cipher')
+    w.show()
+
+    app.installEventFilter(w)
+
+    # execute application
+    sys.exit(app.exec_())
