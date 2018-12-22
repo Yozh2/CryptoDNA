@@ -35,6 +35,9 @@ class MainWindow(QMainWindow):
     def _encrypt_button_clicked(self):
         # Convert message to binary
         self.m_enc = self.ui.enc_M_text.toPlainText()
+        if len(self.m_enc) == 0:
+            self.statusBar().showMessage('Secret message is empty!!!!!')
+            return
         self.M_enc = text_to_bits(self.m_enc)
 
         # Generate key
@@ -48,7 +51,13 @@ class MainWindow(QMainWindow):
     def _decrypt_button_clicked(self):
         # Get encrypted message and key
         self.C_dec = [i for i in self.ui.dec_C_text.toPlainText().split('\n')]
+        if len(self.C_dec) < 2:
+            self.statusBar().showMessage('Encrypted message is empty!!!!!')
+            return
         self.K_dec = self.ui.dec_K_text.toPlainText()
+        if len(self.K_dec) == 0:
+            self.statusBar().showMessage('Key is empty!!!!!')
+            return
 
         # Decrypt message C to M using K
         self.M_dec = decrypt(self.K_dec, self.C_dec)
