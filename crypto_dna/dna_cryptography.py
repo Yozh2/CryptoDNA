@@ -61,11 +61,20 @@ def encrypt(K, M):
 def decrypt(K, C):
     '''Decrypt DNA string `C` to list of binary strings of length 7 `M_bin` using key `K`'''
     M_bin = ''
+    K_parts = [K[i:i+10] for i in range(0, len(K), 10)]
+
+    search_idx = len(K_parts)
     for packet in C:
-        for shift in range(int(packet[10:]) * 10, len(K), 10):
-            if pairing_successful(K[len(K)-10 -10*shift : len(K) - 10*shift], packet[:10]):
+        msg_id = int(packet[10:])
+        msg = packet[:10]
+
+        for part in K_parts[search_idx-1::-1]:
+            if pairing_successful(part, msg):
                 M_bin += '1'
+                search_idx -= 1
+                break
             else:
                 M_bin += '0'
-
-    return M_bin
+                search_idx -= 1
+    split_bits = [M_bin[i:i+7] for i in range(0, len(M_bin), 7)]
+    return split_bits
