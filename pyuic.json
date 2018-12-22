@@ -1,0 +1,13 @@
+{
+    "files": [
+        [
+            "crypto_dna/gui/*.ui",
+            "crypto_dna/gui"
+        ]
+    ],
+    "hooks": [],
+    "pyrcc": "pyrcc5",
+    "pyrcc_options": "",
+    "pyuic": "pyuic5",
+    "pyuic_options": "--from-import"
+}
