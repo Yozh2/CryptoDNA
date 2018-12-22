@@ -4,13 +4,15 @@ crypto_dna - biological cryptograhic tool based on the DNA cryptograhy
 
 import sys
 from PyQt5 import QtCore, QtWidgets, QtGui
-from .main_window import MainWindow
+from .main_window import *
 
 def main():
     # Create and configure application window
     app = QtWidgets.QApplication(sys.argv)
     app.setStyle("fusion")  # Linux visual style
-    window = MainWindow()
+    ui = Ui_MainWindow()
+    window = QtWidgets.QMainWindow()
+    ui.setupUi(window)
     window.show()
 
     sys.exit(app.exec_())
